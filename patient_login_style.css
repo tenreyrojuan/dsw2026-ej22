@@ -1,0 +1,125 @@
+*{
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+body .main-header{
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  justify-content: space-between;
+  margin: 0.5rem;
+  font-size: small;
+}
+body .main-header button {
+  background: none;
+  border: 0.5px solid black;
+  cursor: pointer;
+
+}
+body .main-header{
+  display: none;
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  background-color: #e2f3f6;
+}
+
+.login-container form {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-size: small;
+  width: 250px;
+  align-self: center;
+}
+
+.login-container form .login-intro{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: 0.2rem auto 1rem;
+}
+
+.login-container form .login-intro .l-i-medPortal{
+  color: rgb(3, 78, 128);
+  margin: 0 auto 0.5rem auto;
+}
+
+.login-container form .login-intro .l-i-access{
+  margin: auto auto 0.3rem auto;
+}
+
+.login-container form label{
+  font-size: small;
+}
+.login-container form input{
+   background-color: rgb(236, 244, 251);
+   border: 1px solid gray;
+   border-radius: 2px;
+   padding: 0.5rem;
+   outline: none;
+   opacity: 0.8;
+}
+
+.login-container form button{
+  padding: 10px 20px;
+  cursor: pointer;
+  border: none;
+  border-radius: 3px;
+  color: white;
+  background-color: rgb(14, 70, 130);
+  font-size: small;
+}
+.login-container form .l-help{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 1rem auto 0;
+  border-top: 1px solid rgb(165, 164, 164);
+  font-size: small;
+  text-align: center;
+  padding: 1rem 0rem 0rem;
+}
+
+@media screen and (min-width: 600px) {
+  .main-header button{
+    display: none;
+  }
+  body .main-header{
+    display:flex;
+  }
+
+  body .main-header .m-h-medPortal{
+    visibility: visible;
+    align-self: center;
+  }
+  body .main-header .main-support{
+    visibility: visible;
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    gap: 1rem;
+    font-size: small;
+  }
+  body .main-header .main-help{
+    visibility: visible;
+    font-size: small;
+    align-self: center;
+  }
+
+  .login-container {
+    align-items: center;
+  }
+
+  .login-container form {
+    width: 275px;
+  }
+  
+}
