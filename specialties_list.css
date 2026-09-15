@@ -1,0 +1,361 @@
+.dashboard-container {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas: 
+    "header"
+    "main"
+    "footer";
+  height: 100dvh;
+}
+
+.dashboard-container nav .sbar-intro{
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.5rem;
+}
+.dashboard-container nav .sbar-intro span:first-child{
+  font-size: 0.95rem;
+  font-weight: bold;
+  color: rgb(37, 105, 168);
+}
+.dashboard-container nav .sbar-intro span:last-child{
+  font-size: 0.65rem;
+}
+
+.dashboard-container nav {
+  margin-top: 10px;
+  position: absolute;
+  display: grid;
+  grid-template-rows: 70px 1fr auto;
+  top: 0;
+  bottom: 0;
+  width: 175px;
+  background-color: white;
+  left: -175px;
+  transition: left 0.3s ease-in-out;
+  font-size: 0.8rem;
+}
+
+.dashboard-container nav.shown{
+  left: 0;
+}
+
+.dashboard-container nav ul {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: inherit;
+}
+
+.dashboard-container nav ul li {
+  display: flex;
+  gap: 7.5px;
+  vertical-align: middle;
+  align-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.dashboard-container nav ul li.selected{
+  background-color: rgb(229, 234, 243);
+  font-weight: bold;
+  border-right: 4px solid rgb(1, 65, 161);
+}
+
+.dashboard-container nav ul a {
+  text-decoration: none;
+}
+.dashboard-container nav .account-management{
+  border-top: 0.5px solid grey;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  gap: 10px; 
+}
+
+.dashboard-container nav .account-management button {
+  display: flex;
+  background: none;
+  border: none;
+  cursor: pointer;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+}
+.dashboard-container nav .account-management .profile {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+
+.dashboard-container nav .account-management .profile img {
+  border: 0.5px solid rgb(161, 197, 251);
+}
+
+.dashboard-container nav .account-management .profile .user_caracteristics {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+.dashboard-container nav .account-management .profile .user-type{
+  font-size: 0.75rem;
+  color: blue;
+  font-weight: bold;
+}
+.dashboard-container nav .account-management .profile .admin-type{
+  font-size: 0.6rem;
+}
+
+
+.dashboard-container header {
+  grid-area: header;
+  height: 50px;
+  background-color: #333;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  font-size: medium;
+}
+
+.dashboard-container header div {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.dashboard-container main {
+  grid-area: main;
+  padding: 1rem;
+  overflow-y: auto;
+  display: grid;
+  gap: 1rem;
+  align-content: start;
+  background-color: rgb(231, 250, 253);
+}
+
+.dashboard-container main .specialties-bar-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  border-radius: 4px;
+  gap: 2rem;
+}
+.dashboard-container main .specialties-bar-container .h-container{
+  width: 350px;
+}
+
+.dashboard-container main .specialties-bar-container .h-container h1 {
+  margin: 0 0 0.5rem 0;
+  font-size: x-large;
+} 
+.dashboard-container main .specialties-bar-container .h-container span {
+  font-size: small;
+}
+
+.dashboard-container main .specialties-bar-container .s-s-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  gap: 0.5rem;
+}
+
+.dashboard-container main .specialties-bar-container .s-s-container .search-container {
+  display: flex;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 5px;
+  align-items: center;
+  opacity: 0.5;
+}
+
+.dashboard-container main .specialties-bar-container .s-s-container .search-bar {
+  background: none;
+  border: none;
+  width: 200px;      
+  max-width: 100%;
+  height: 20px;
+  padding: 0 0.5rem;
+  outline: none;
+}
+
+.dashboard-container main .specialties-bar-container .s-s-container .search-container .search-button{
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.dashboard-container main .specialties-bar-container .s-s-container .s-new-spalty-bttn{
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  align-items: center;
+  background: rgb(10, 75, 125);
+  color: rgb(171, 210, 238);
+  padding: 0.2rem;
+  border: 1px solid black;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+  font-size: x-small;
+  height: 35px;
+  width: 100px;
+}
+
+.dashboard-container table {
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: small;
+  border: 0.5px solid black;
+  border-radius: 6px;
+  overflow: hidden;
+  width: 77.5vw;
+}
+.dashboard-container table{
+  text-align: left;
+}
+
+.dashboard-container table thead{
+  background-color:rgb(246, 249, 247);
+}
+.dashboard-container table tbody {
+  background-color: rgb(255, 255, 255);
+}
+
+.dashboard-container table thead tr th,
+.dashboard-container table tbody tr td{
+  border-bottom: 0.5px solid rgb(198, 198, 198);
+}
+
+.dashboard-container table thead th,
+.dashboard-container table tbody td{
+  padding: 0.75rem 1rem;
+}
+
+.dashboard-container table tbody td {
+  height: 30px;
+}
+
+.dashboard-container table tbody .nameCell {
+  width: 120px;
+}
+.dashboard-container table tbody .descriptionCell {
+  width: 600px;
+}
+
+.dashboard-container table tbody td .specialtyImg {
+  border-radius: 1px;
+  margin: 0 0.5rem 0 0;
+  vertical-align:middle;
+  padding: 5px;
+  background-color: rgb(198, 241, 248);
+}
+
+.dashboard-container table tbody .actionButtonCell {
+  display: flex;
+  gap: 16px;
+}
+
+.dashboard-container table tbody .button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 1px;
+}
+
+.dashboard-container main .data-container {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  justify-content: left;
+  width: 77.5vw;
+}
+
+.dashboard-container main .data-container span {
+  font-size: 0.85rem;
+}
+
+.dashboard-container main .data-container div{
+  display: grid;
+  grid-template-columns: 200px 30px;
+  grid-template-areas: 
+  "card-name card-icon"
+  "card-count card-icon"
+  "card-trend card-trend";
+  border: 0.5px solid rgb(146, 146, 146);
+  border-radius: 3px;
+  padding: 1rem;
+  background-color: white;
+  height: 4rem;
+  border-left: 4px solid rgb(27, 135, 206);
+}
+
+.dashboard-container main .data-container div .card-name{
+  grid-area: card-name;
+}
+.dashboard-container main .data-container div .card-count {
+  grid-area: card-count;
+}
+.dashboard-container main .data-container div .card-trend {
+  grid-area: card-trend;
+}
+.dashboard-container main .data-container div .card-icon{
+  grid-area: card-icon;
+  background-color: rgb(202, 228, 230);
+  border-radius: 3px;
+  padding: 5px;
+}
+
+.dashboard-container footer {
+  grid-area: footer;
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
+
+@media screen and (min-width: 600px) {
+
+  .dashboard-container {
+    grid-template-columns: 200px 1fr;
+    grid-template-areas: 
+      "nav header"
+      "nav main"
+      "footer footer";
+  }
+  
+  .dashboard-container header {
+    display: none;
+  }
+
+  .dashboard-container nav {
+    grid-area: nav;
+    position: static;
+    left: 0;
+    height: auto;
+  }
+  .dashboard-container nav .sbar-intro{
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 0.5rem;
+  }
+  .dashboard-container nav .sbar-intro span:first-child{
+    font-size: 0.95rem;
+    font-weight: bold;
+    color: rgb(37, 105, 168);
+  }
+  .dashboard-container nav .sbar-intro span:last-child{
+    font-size: 0.65rem;
+  }
+
+  .dashboard-container header div .menu {
+    display: none;
+  }
+}
