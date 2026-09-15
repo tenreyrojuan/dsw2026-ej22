@@ -18,6 +18,13 @@
   left: -200px;
 }
 
+.dashboard-container .sidebar.open{
+  left: 0px;
+}
+
+.menu:hover{
+  cursor:pointer;
+}
 .dashboard-container nav ul {
   list-style: none;
   padding: 0;
