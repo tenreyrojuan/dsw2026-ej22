@@ -7,6 +7,11 @@
     "main"
     "footer";
   height: 100dvh;
+
+}
+
+.menu:hover {
+  cursor: pointer;
 }
 
 .dashboard-container nav {
@@ -16,6 +21,10 @@
   width: 200px;
   background-color: #f4f4f4;
   left: -200px;
+}
+
+.dashboard-container .sidebar.open{
+  left: 0;
 }
 
 .dashboard-container nav ul {
