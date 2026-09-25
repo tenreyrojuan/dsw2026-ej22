@@ -1,11 +1,10 @@
 .dashboard-container {
   display: grid;
   grid-template-columns: auto;
-  grid-template-rows: auto 1fr auto;
   grid-template-areas: 
-    "header"
     "main"
-    "footer";
+    "main"
+    "main";
   height: 100dvh;
 }
 
@@ -113,6 +112,7 @@
 
 .dashboard-container header {
   grid-area: header;
+
   height: 50px;
   background-color: #333;
   color: white;
@@ -133,34 +133,42 @@
   grid-area: main;
   padding: 1rem;
   overflow-y: auto;
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 1rem;
   align-content: start;
   background-color: rgb(231, 250, 253);
 }
 
-.dashboard-container main .specialties-bar-container{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  border-radius: 4px;
-  gap: 2rem;
-}
-.dashboard-container main .specialties-bar-container .h-container{
-  width: 350px;
+.dashboard-container main .specialties-bar-container {
+  display:flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
 }
 
-.dashboard-container main .specialties-bar-container .h-container h1 {
-  margin: 0 0 0.5rem 0;
-  font-size: x-large;
-} 
-.dashboard-container main .specialties-bar-container .h-container span {
-  font-size: small;
+.dashboard-container main .specialties-bar-container .h-container{
+  grid-area: intro;
+}
+
+.dashboard-container main .specialties-bar-container .h-container h1{
+  font-size: 1.5rem;
+}
+.dashboard-container main .specialties-bar-container .h-container span{
+  font-size: 1.2rem;
+}
+
+
+.dashboard-container main .specialties-bar-container .s-s-container {
+  grid-area: search-bar;
+  display: flex;
+  align-items: center;
 }
 
 .dashboard-container main .specialties-bar-container .s-s-container {
+  grid-area: s-s-container;
   display: flex;
-  justify-content: center;
+  justify-content: right;
   align-items: center;
   width: auto;
   gap: 0.5rem;
@@ -173,15 +181,14 @@
   border-radius: 5px;
   align-items: center;
   opacity: 0.5;
+  padding: 2px;
 }
 
 .dashboard-container main .specialties-bar-container .s-s-container .search-bar {
   background: none;
-  border: none;
-  width: 200px;      
-  max-width: 100%;
-  height: 20px;
-  padding: 0 0.5rem;
+  width: 15rem;
+  height: 1rem;
+  padding: 0 0.5rem;  border: none;
   outline: none;
 }
 
@@ -194,7 +201,7 @@
 
 .dashboard-container main .specialties-bar-container .s-s-container .s-new-spalty-bttn{
   display: grid;
-  grid-template-columns: 20px 1fr;
+  grid-template-columns: 20px auto;
   align-items: center;
   background: rgb(10, 75, 125);
   color: rgb(171, 210, 238);
@@ -203,19 +210,18 @@
   border-radius: 5px;
   cursor: pointer;
   outline: none;
-  font-size: x-small;
-  height: 35px;
-  width: 100px;
+  font-size: 0.75rem;
+  height: 2.5rem;
+  width: 8rem;
 }
 
 .dashboard-container table {
   border-collapse: separate;
   border-spacing: 0;
-  font-size: small;
+  font-size: 0.75rem;
   border: 0.5px solid black;
   border-radius: 6px;
   overflow: hidden;
-  width: 77.5vw;
 }
 .dashboard-container table{
   text-align: left;
@@ -235,31 +241,28 @@
 
 .dashboard-container table thead th,
 .dashboard-container table tbody td{
-  padding: 0.75rem 1rem;
+  padding: 0.5rem 0.5rem;
 }
 
 .dashboard-container table tbody td {
   height: 30px;
 }
 
-.dashboard-container table tbody .nameCell {
-  width: 120px;
-}
-.dashboard-container table tbody .descriptionCell {
-  width: 600px;
-}
-
 .dashboard-container table tbody td .specialtyImg {
   border-radius: 1px;
   margin: 0 0.5rem 0 0;
   vertical-align:middle;
-  padding: 5px;
+  padding: 4px;
   background-color: rgb(198, 241, 248);
+}
+.dashboard-container table tbody .nameCell {
+  font-weight: bold;
+  min-width: 90px;
 }
 
 .dashboard-container table tbody .actionButtonCell {
   display: flex;
-  gap: 16px;
+  gap:16px;
 }
 
 .dashboard-container table tbody .button {
@@ -271,19 +274,19 @@
 
 .dashboard-container main .data-container {
   display: flex;
-  flex-direction: row;
-  gap: 40px;
-  justify-content: left;
-  width: 77.5vw;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
 }
 
 .dashboard-container main .data-container span {
-  font-size: 0.85rem;
+  font-size: 1rem;
 }
 
 .dashboard-container main .data-container div{
   display: grid;
-  grid-template-columns: 200px 30px;
+  grid-template-columns: 1fr auto;
   grid-template-areas: 
   "card-name card-icon"
   "card-count card-icon"
@@ -292,8 +295,10 @@
   border-radius: 3px;
   padding: 1rem;
   background-color: white;
-  height: 4rem;
   border-left: 4px solid rgb(27, 135, 206);
+  gap: 0px 1rem;
+  align-self: center;
+  min-width: 250px;
 }
 
 .dashboard-container main .data-container div .card-name{
@@ -320,16 +325,14 @@
   padding: 1rem;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 768px) {
 
   .dashboard-container {
     grid-template-columns: 200px 1fr;
     grid-template-areas: 
-      "nav header"
-      "nav main"
-      "footer footer";
+      "nav main";
   }
-  
+
   .dashboard-container header {
     display: none;
   }
@@ -347,13 +350,52 @@
     padding: 0.5rem;
   }
   .dashboard-container nav .sbar-intro span:first-child{
-    font-size: 0.95rem;
+    font-size: 1.25rem;
     font-weight: bold;
     color: rgb(37, 105, 168);
   }
   .dashboard-container nav .sbar-intro span:last-child{
-    font-size: 0.65rem;
+    font-size: 1rem;
   }
+  .dashboard-container nav ul li{
+    font-size: 1.2rem;
+  }
+
+  .dashboard-container nav .account-management .help{
+    font-size: 1rem;
+  }
+  .dashboard-container nav .account-management .logout{
+    font-size: 1rem;
+  }
+  .dashboard-container nav .account-management .user_caracteristics .user-type{
+    font-size: 0.8rem;
+  }
+    .dashboard-container nav .account-management .user_caracteristics .admin-type {
+      font-size: 0.8rem;
+    }
+
+  .dashboard-container table {
+    font-size: 1rem;
+  }
+  .dashboard-container main .specialties-bar-container {
+    flex-wrap: wrap;
+  }
+  .dashboard-container main .specialties-bar-container > div{
+    flex: 1;
+  }
+
+.dashboard-container main .data-container {
+  flex-direction: row;
+  flex-wrap: wrap;
+  font-size: 0.5rem;
+  justify-content: space-between;
+}
+.dashboard-container main .data-container div {
+    justify-content: center;
+}
+.dashboard-container main .data-container span {
+  font-size: 1rem;
+}
 
   .dashboard-container header div .menu {
     display: none;

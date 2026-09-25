@@ -19,24 +19,26 @@ specialties.forEach(specialty => {
   const nameCell = document.createElement('td');
   nameCell.classList.add('nameCell');
 
+  const specialtyImg = makeSpecialtyImage(iconRoute);
+  specialtyImg.classList.add('specialtyImg');
+
   const descriptionCell = document.createElement('td');
   descriptionCell.classList.add('descriptionCell');
 
-  const actionCell = document.createElement('td');
-  actionCell.classList.add('actionButtonCell');
-  
-  const specialtyImg = makeSpecialtyImage(iconRoute);
-  specialtyImg.classList.add('specialtyImg');
+  const actionDiv = document.createElement('div');
+  actionDiv.classList.add('actionButtonCell');
 
   const [editButton,deleteButton] = makeActionButtons();
   editButton.classList.add('button')
   deleteButton.classList.add('button')
 
+  const actionCell = document.createElement('td');
 
   nameCell.append(specialtyImg,specialty.name);
   descriptionCell.textContent = specialty.description;
-  actionCell.append(editButton,deleteButton);
+  actionDiv.append(editButton,deleteButton);
   
+  actionCell.appendChild(actionDiv);
 
   row.appendChild(nameCell);
   row.appendChild(descriptionCell);
@@ -89,12 +91,16 @@ function makeActionButtons(){
   return [editButton,deleteButton];
 }
 
+const headerContainer = document.getElementById('header-container');
+
+const searchContainer = document.getElementById('search-container');
 const searchButton = document.getElementById('search-button');
 const searchBar = document.getElementById('search-bar');
 
+
 searchButton.addEventListener('click', (event) => {
   event.preventDefault();
-    showSpecialtyMatches()
+  showSpecialtyMatches();
 })
 
 searchBar.addEventListener('keypress',(event) =>{
@@ -116,27 +122,5 @@ function showSpecialtyMatches(){
       row.hidden = true;
       }
     });
-}
-
-  const menuButton = document.getElementById('menu');
-  const navBar = document.getElementById('sidebar');
-
-  menuButton.addEventListener('click', () => {
-    navBar.classList.toggle('shown')
-  })
-
-
-  const navbarList = document.getElementById('list');
-  const specialties_card = navbarList.children[1];
-  console.log(specialties_card.childElementCount);
-  console.log(specialties_card.children[1]);
-  const specialties_a = specialties_card.children[1];
-
-  specialties_a.addEventListener('click', (event) => {
-    event.preventDefault();
-
-    specialties_card.classList.add('selected');
-  })
-
-});
+}});
 

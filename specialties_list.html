@@ -10,13 +10,13 @@
 </head>
 <body>
   <div class="dashboard-container">
-    <header>
+    <!-- <header>
       <span>Gestor de turnos</span>
       <div>
         <button id="menu" class="menu">&#9776;</button>
         <button id="logout">Cerrar Sesión</button>
       </div>
-    </header>
+    </header> -->
     <nav id="sidebar">
       <div class="sbar-intro">
         <span>Portal Admin</span>
@@ -33,12 +33,12 @@
           <button class="help">
               <img src="images/question_mark.png" alt="question_mark" height="20" width="20">Help Center
             </button>
-            <button class="logout">
+            <button class="logout" id="logout">
               <img src="images/logout.png" alt="logout" height="20" width="20"> Logout
           </button>
           <div class="profile">
             <button>
-              <img src="images/doctor.png" alt="" height="25" width="25">
+              <img src="images/doctor.png" alt="" height="30" width="30">
             </button>
             <div class="user_caracteristics">
               <span class="user-type">Admin User</span>
@@ -49,13 +49,13 @@
     </nav>
     <main>
       <div class="specialties-bar-container">
-        <div class="h-container">
+        <div id="header-container" class="h-container">
           <h1>Directorio de Especialidades</h1>
           <span>Administre las categorías medicas, servicios y disponibilidad del personal especializado.
           </span>
         </div>
         <div class="s-s-container">
-          <div class="search-container">
+          <div id="search-container" class="search-container">
           <button type="submit" class="search-button" id="search-button">
               <img src="images/lupa.png" width="20" height="20">
           </button>
@@ -99,7 +99,7 @@
         </div>
       </div>
     </main>
-    <footer>Mi Aplicación &copy; 2024</footer>
+    <!-- <footer>Mi Aplicación &copy; 2024</footer> -->
   </div>
 </body>
 </html>
