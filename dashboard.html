@@ -1,42 +1,140 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Listado de Productos</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="dashboard_style.css">
-  <script src="dashboard.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Control</title>
+    <link rel="stylesheet" href="dashboard_style.css">
+    <script src="dashboard.js" defer></script>
 </head>
 <body>
-  <div class="dashboard-container">
-    <header>
-      <span>Gestor de turnos</span>
-      <div>
-        <button id="menu-button" class="menu">&#9776;</button>
-        <button id="logout">Cerrar Sesión</button>
-      </div>
-    </header>
-    <nav class="sidebar" id="sidebar">
-      <ul>
-        <li><a href="#">Panel</a></li>
-      </ul>
-    </nav>
-    <main>
-      <h1>Pacientes</h1>
-      <table>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Paciente</th>
-          </tr>
-        </thead>
-        <tbody id="product-table-body">
-          
-        </tbody>
-      </table>
-    </main>
-    <footer>Mi Aplicación &copy; 2024</footer>
-  </div>
+    <div class="dashboard-container">
+
+        <!-- barra superior: solo se ve en vista mobile -->
+        <header class="mobile-topbar">
+            <button id="menu-button" class="menu-btn" type="button" aria-label="Abrir menú" aria-controls="sidebar" aria-expanded="false">&#9776;</button>
+            <span class="topbar-title">Portal Admin</span>
+        </header>
+		<!-- -------------- -->
+        <div class="body-layout">
+
+            <nav id="sidebar">
+                <div class="sidebar-header">
+                    <span class="portal-title">Portal Admin</span>
+                    <span class="portal-subtitle">Gestión Hospitalaria</span>
+                </div>
+
+                <ul id="nav-list">
+                    <li class="selected"><img src="images/control_panel.png" alt="" height="15" width="15"><a href="dashboard.html">Panel Control</a></li>
+                    <li><img src="images/specialties_card.png" alt="" height="15" width="15"><a href="specialties_list.html">Especialidades</a></li>
+                    <li><img src="images/doctor_card.png" alt="" height="15" width="15"><a href="#">Médicos</a></li>
+                    <li><img src="images/user.png" alt="" height="15" width="15"><a href="#">Pacientes</a></li>
+                    <li><img src="images/config.png" alt="" height="15" width="15"><a href="#">Configuración</a></li>
+                </ul>
+
+                <div class="account-management">
+                    <hr class="sidebar-divider" />
+                    <button class="account-btn" type="button">
+                        <img src="images/question_mark.png" alt="" height="20" width="20"> Help Center
+                    </button>
+                    <button class="account-btn" type="button" id="logout">
+                        <img src="images/logout.png" alt="" height="20" width="20"> Logout
+                    </button>
+
+                    <div class="profile-card">
+                        <button type="button" class="profile-btn">
+                            <img src="images/doctor.png" alt="Foto perfil" height="25" width="25">
+                        </button>
+                        <div class="user-details">
+                            <span class="user-name">Admin User</span>
+                            <span class="user-role">Super Administrator</span>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <div id="sidebar-overlay" class="sidebar-overlay"></div>
+
+            <main class="main-content">
+                <h1 class="page-title">Vista General de Gestión</h1>
+                <p class="subtitle">Configure el personal médico y las especialidades del departamento.</p>
+			<!-- botones: -->
+                <div class="quick-actions">
+                    <a class="btn-primary" href="#">
+                        <img src="images/plus_sign.png" alt="" width="25" height="14"> Agregar Nuevo Doctor
+                    </a>
+                    <a class="btn-outline" href="specialty_add.html">
+                        <img src="images/specialties_card.png" alt="" width="15" height="15"> Agregar Nueva Especialidad
+                    </a>
+                </div>
+			<!-- tarjetas stats: -->
+                <section class="stats" aria-label="Resumen general">
+                    <article class="stat-card">
+                        <div class="stat-top">
+                            <span class="stat-icon"><img src="images/doctor_card.png" alt="" width="20" height="20"></span>
+                            <span class="stat-tag" id="doctors-tag">Estable</span>
+                        </div>
+                        <span class="stat-label">Doctores activos</span>
+                        <span class="stat-value" id="active-doctors">0</span>
+                    </article>
+
+                    <article class="stat-card">
+                        <div class="stat-top">
+                            <span class="stat-icon"><img src="images/specialties_card.png" alt="" width="20" height="20"></span>
+                            <span class="stat-tag" id="specialties-tag">Estable</span>
+                        </div>
+                        <span class="stat-label">Especialidades activas</span>
+                        <span class="stat-value" id="active-specialties">0</span>
+                    </article>
+
+                    <article class="stat-card">
+                        <div class="stat-top">
+                            <span class="stat-icon"><img src="images/check.png" alt="" width="20" height="20"></span>
+                            <span class="stat-tag">Hoy</span>
+                        </div>
+                        <span class="stat-label">Turnos confirmados para hoy</span>
+                        <span class="stat-value" id="today-appointments">0</span>
+                    </article>
+                </section>
+			<!-- directorio de los medicos como en la consigna del tpi: -->
+                <section class="directory" aria-label="Directorio de profesionales médicos">
+                    <div class="directory-header">
+                        <h2>Directorio de Profesionales Médicos</h2>
+                        <div class="search-container">
+                            <button type="button" class="search-button" id="search-button" aria-label="Buscar">
+                                <img src="images/lupa.png" alt="" width="15" height="15">
+                            </button>
+                            <input type="search" id="search-bar" class="search-bar" placeholder="Buscar por nombre..." maxlength="100">
+                        </div>
+                    </div>
+
+                    <div class="table-wrapper">
+                        <table id="doctors-table">
+                            <thead>
+                                <tr>
+                                    <th>Nombre del Doctor</th>
+                                    <th>Especialidad</th>
+                                    <th>Estado de Disponibilidad</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="doctors-table-body">
+                                <!-- Los médicos se cargan dinámicamente -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="directory-footer">
+                        <span id="results-info">Mostrando 0 de 0 resultados</span>
+                        <div class="pagination">
+                            <button type="button" id="prev-page" aria-label="Página anterior">&lsaquo;</button>
+                            <button type="button" id="next-page" aria-label="Página siguiente">&rsaquo;</button>
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+        </div>
+    </div>
 </body>
 </html>
