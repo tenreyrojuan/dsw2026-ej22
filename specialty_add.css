@@ -1,0 +1,265 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    margin: 0;
+    font-size: 1rem;
+    min-height: 100dvh;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.body-layout {
+    display: flex;
+    flex: 1;
+}
+
+
+#sidebar {
+    width: 220px;
+    background-color: #ffffff;
+    border-right: 1px solid #e0e0e0;
+    padding: 20px 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.sidebar-header {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+    .sidebar-header .portal-title {
+        font-weight: bold;
+        color: rgb(37, 105, 168);
+        margin-bottom: 4px;
+        font-size: 16px;
+    }
+
+    .sidebar-header .portal-subtitle {
+        font-size: 11px;
+        color: #888888;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+#nav-list {
+    list-style: none;
+    flex: 1;
+}
+
+    #nav-list li {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 8px;
+        border-radius: 6px;
+        margin-bottom: 4px;
+    }
+
+        #nav-list li:hover {
+            background-color: #f0f2f5;
+        }
+
+        #nav-list li a {
+            text-decoration: none;
+            color: #333333;
+            font-size: 14px;
+        }
+
+.account-management {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sidebar-divider {
+    border: none;
+    height: 1px;
+    background-color: #dbdbdb;
+    width: calc(100% + 2rem);
+    margin: 18px -1rem;
+}
+
+.account-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 13px;
+    color: #333333;
+    padding: 8px 6px;
+    border-radius: 6px;
+    text-align: left;
+}
+
+    .account-btn:hover {
+        background-color: #f0f2f5;
+    }
+
+.profile-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 6px 8px 6px;
+    border-top: 1px solid #eeeeee;
+    margin-top: 8px;
+}
+
+.profile-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.profile-card img {
+    border-radius: 15%;
+    background-color: #dddddd;
+    padding: 1px;
+}
+
+.user-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-name {
+    font-weight: bold;
+    font-size: 13px;
+    color: #1a2b4a;
+}
+
+.user-role {
+    font-size: 11px;
+    color: #888888;
+}
+
+
+
+.main-content {
+    background-color: rgb(236, 245, 253);
+    flex: 1;
+}
+
+.breadcrumb {
+    margin-left: 30px;
+    margin-top: 30px;
+    font-size: 14px;
+    border-radius: 3px;
+}
+
+.breadcrumb-link {
+    text-decoration: none;
+    color: darkslategrey;
+}
+
+.breadcrumb-current {
+    color: dimgrey;
+}
+
+.page-title {
+    color: rgb(37, 105, 168);
+    padding-top: 20px;
+    margin-left: 30px;
+    font-size: 15px;
+    font-weight: normal;
+}
+
+.subtitle {
+    padding-top: 5px;
+    margin-left: 30px;
+    font-size: 15px;
+}
+
+.specialty-form {
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    margin-left: 30px;
+    margin-right: 130px;
+    margin-top: 25px;
+    padding: 20px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+    .specialty-form label {
+        display: block;
+        color: #73737a;
+    }
+
+    .specialty-form input {
+        width: 98%;
+        margin-top: 4px;
+        margin-bottom: 25px;
+        padding: 7px;
+        border: 2px solid #cccccc;
+        border-radius: 3px;
+        outline: none;
+        opacity: 0.5;
+    }
+
+    .specialty-form textarea {
+        width: 98%;
+        height: 150px;
+        margin-top: 4px;
+        margin-bottom: 25px;
+        padding: 7px;
+        border: 2px solid #cccccc;
+        border-radius: 3px;
+        outline: none;
+        opacity: 0.5;
+    }
+
+    .specialty-form select {
+        width: 98%;
+        margin-top: 4px;
+        margin-bottom: 20px;
+        padding: 7px;
+        border: 2px solid #cccccc;
+        border-radius: 3px;
+        outline: none;
+    }
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn-cancel {
+    margin-top: 80px;
+    margin-right: 20px;
+    height: 35px;
+    padding: 10px;
+    border: 2px solid rgb(105, 153, 201);
+    border-radius: 4px;
+    background-color: #ffffff;
+    color: rgb(105, 153, 201);
+    text-align: center;
+    cursor: pointer;
+}
+
+.btn-submit {
+    margin-top: 80px;
+    margin-right: 20px;
+    height: 35px;
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+    background-color: rgb(37, 21, 99);
+    color: lightgrey;
+    cursor: pointer;
+}
