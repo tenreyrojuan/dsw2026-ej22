@@ -7,11 +7,42 @@
 
 .login-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: radial-gradient(circle at 50% 35%, #163660 0%, #09172d 100%);
+  background: radial-gradient(circle at 50% 50%, #153965 0%, #08172e 60%, #030b17 100%);
   padding: 1rem;
+}
+
+.medportal-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.medportal-brand .logo-box {
+  width: 48px;
+  height: 48px;
+  background: #ffffff;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  margin-bottom: 0.6rem;
+}
+
+.medportal-brand .logo-box svg {
+  width: 26px;
+  height: 26px;
+}
+
+.medportal-brand h2 {
+  color: #ffffff;
+  font-size: 1.35rem;
+  font-weight: 500;
 }
 
 .login-container form {
@@ -20,17 +51,32 @@
   width: 100%;
   max-width: 380px;
   background: #ffffff;
-  padding: 2.2rem 2rem;
+  padding: 2rem 2rem 0 2rem;
   border-radius: 12px;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
 }
 
 .login-container form br {
   display: none;
 }
 
+.login-container form h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 0.35rem;
+}
+
+.login-container form .subtitle {
+  font-size: 0.8rem;
+  color: #64748b;
+  line-height: 1.35;
+  margin-bottom: 1.4rem;
+}
+
 .login-container label {
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 600;
   color: #334155;
   margin-bottom: 0.4rem;
@@ -40,14 +86,18 @@
 .login-container input[type="password"] {
   width: 100%;
   padding: 0.75rem 0.9rem;
-  font-size: 0.9rem;
-  background-color: #f8fafc;
-  border: 1px solid #cbd5e1;
+  font-size: 0.88rem;
+  background-color: #f0f6fa;
+  border: 1px solid #d5e2ec;
   border-radius: 6px;
   outline: none;
-  margin-bottom: 1.2rem;
+  margin-bottom: 1.1rem;
   color: #0f172a;
   transition: border-color 0.2s, box-shadow 0.2s, background-color 0.2s;
+}
+
+.login-container input::placeholder {
+  color: #8da2b5;
 }
 
 .login-container input[type="text"]:focus,
@@ -58,11 +108,12 @@
 }
 
 .login-container button[type="submit"] {
-  margin-top: 0.4rem;
+  margin-top: 0.2rem;
+  margin-bottom: 1.6rem;
   padding: 0.8rem;
-  background-color: #122c54;
+  background-color: #163660;
   color: #ffffff;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   font-weight: 600;
   border: none;
   border-radius: 6px;
@@ -71,14 +122,37 @@
 }
 
 .login-container button[type="submit"]:hover {
-  background-color: #0a1b35;
+  background-color: #0e2442;
+}
+
+.security-footer {
+  margin: 0 -2rem; 
+  padding: 1rem 1.4rem;
+  background-color: #eaf4fb;
+  border-top: 1px solid #daeaf5;
+  display: flex;
+  gap: 0.6rem;
+  align-items: flex-start;
+}
+
+.security-footer svg {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.security-footer p {
+  font-size: 0.72rem;
+  line-height: 1.4;
+  color: #475569;
+}
+
+.security-footer strong {
+  color: #1e293b;
 }
 
 @media screen and (min-width: 600px) {
-  .login-container {
-    align-items: center;
-  }
-
   .login-container form {
     width: 400px;
   }
