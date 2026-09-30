@@ -8,21 +8,6 @@
   height: 100dvh;
 }
 
-.dashboard-container nav .sbar-intro{
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-  padding: 0.5rem;
-}
-.dashboard-container nav .sbar-intro span:first-child{
-  font-size: 0.95rem;
-  font-weight: bold;
-  color: rgb(37, 105, 168);
-}
-.dashboard-container nav .sbar-intro span:last-child{
-  font-size: 0.65rem;
-}
-
 .dashboard-container nav {
   margin-top: 10px;
   position: absolute;
@@ -30,11 +15,11 @@
   grid-template-rows: 70px 1fr auto;
   top: 0;
   bottom: 0;
-  width: 175px;
+  width: 220px;
   background-color: white;
-  left: -175px;
+  left: -220px;
   transition: left 0.3s ease-in-out;
-  font-size: 0.8rem;
+  font-size: 0.5rem;
 }
 
 .dashboard-container nav.shown{
@@ -102,7 +87,7 @@
 }
 .dashboard-container nav .account-management .profile .user-type{
   font-size: 0.75rem;
-  color: blue;
+  color: rgb(52, 52, 141);
   font-weight: bold;
 }
 .dashboard-container nav .account-management .profile .admin-type{
@@ -204,7 +189,6 @@
   grid-template-columns: 20px auto;
   align-items: center;
   background: rgb(10, 75, 125);
-  color: rgb(171, 210, 238);
   padding: 0.2rem;
   border: 1px solid black;
   border-radius: 5px;
@@ -213,6 +197,10 @@
   font-size: 0.75rem;
   height: 2.5rem;
   width: 8rem;
+}
+.dashboard-container main .specialties-bar-container .s-s-container .s-new-spalty-bttn a{
+  text-decoration: none;
+  color: rgb(171, 210, 238);
 }
 
 .dashboard-container table {
@@ -258,6 +246,15 @@
 .dashboard-container table tbody .nameCell {
   font-weight: bold;
   min-width: 90px;
+}
+
+.dashboard-container table tbody .statusCell {
+  justify-self: center;
+  text-align: center;
+  padding: 3px;
+  font-size: small;
+  border-radius: 10px;
+  background-color: rgb(130, 227, 195);
 }
 
 .dashboard-container table tbody .actionButtonCell {
@@ -317,6 +314,25 @@
   padding: 5px;
 }
 
+.dashboard-container .pagination-container .pagination-style{
+  list-style: none;
+  display: flex;
+  gap: 8px;
+  justify-self: center;
+}
+
+.dashboard-container .pagination-container ul li button{
+  background-color: rgb(163, 220, 234);
+  border: 1px solid black;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.dashboard-container .pagination-container ul li .pagination-button{
+  font-weight: bold;
+}
+
+
 .dashboard-container footer {
   grid-area: footer;
   background-color: #333;
@@ -350,29 +366,41 @@
     padding: 0.5rem;
   }
   .dashboard-container nav .sbar-intro span:first-child{
-    font-size: 1.25rem;
+    font-size: 1.2rem;
     font-weight: bold;
-    color: rgb(37, 105, 168);
+    color: rgb(4, 71, 133);
   }
   .dashboard-container nav .sbar-intro span:last-child{
+    font-size: 0.75rem;
+  }
+
+  .dashboard-container nav ul {
+    margin: 10px;
+  }
+
+  .dashboard-container nav ul li{
     font-size: 1rem;
   }
-  .dashboard-container nav ul li{
-    font-size: 1.2rem;
+  .dashboard-container nav ul li a{
+    text-decoration: none;
+    color: rgb(75, 102, 121);
   }
 
   .dashboard-container nav .account-management .help{
     font-size: 1rem;
+    color: rgb(75, 102, 121);
   }
   .dashboard-container nav .account-management .logout{
     font-size: 1rem;
+    color: rgb(75, 102, 121);
+
   }
   .dashboard-container nav .account-management .user_caracteristics .user-type{
     font-size: 0.8rem;
   }
-    .dashboard-container nav .account-management .user_caracteristics .admin-type {
-      font-size: 0.8rem;
-    }
+  .dashboard-container nav .account-management .user_caracteristics .admin-type {
+    font-size: 0.8rem;
+  }
 
   .dashboard-container table {
     font-size: 1rem;

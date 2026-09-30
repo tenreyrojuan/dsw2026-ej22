@@ -7,10 +7,15 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 const tbody = document.getElementById('specialities-table-body');
 
-const response = await fetch('specialties.json');
-const specialties = await response.json();
+let specialties = [];
+specialties = JSON.parse(localStorage.getItem('specialties')) || [];
 
 specialties.forEach(specialty => {
+  const row = specialtyRender(specialty);
+  tbody.appendChild(row);
+});
+
+function specialtyRender(specialty) {
   let name = specialty.name;
   const iconRoute = getSpecialtyIconRoute(name);
 
@@ -25,6 +30,14 @@ specialties.forEach(specialty => {
   const descriptionCell = document.createElement('td');
   descriptionCell.classList.add('descriptionCell');
 
+  const stateCell = document.createElement('td');
+  const stateDiv = document.createElement('div');
+
+  stateDiv.classList.add('statusCell');
+  stateDiv.append(specialty.status);
+
+  stateCell.append(stateDiv);
+
   const actionDiv = document.createElement('div');
   actionDiv.classList.add('actionButtonCell');
 
@@ -35,6 +48,8 @@ specialties.forEach(specialty => {
   const actionCell = document.createElement('td');
 
   nameCell.append(specialtyImg,specialty.name);
+
+
   descriptionCell.textContent = specialty.description;
   actionDiv.append(editButton,deleteButton);
   
@@ -42,20 +57,21 @@ specialties.forEach(specialty => {
 
   row.appendChild(nameCell);
   row.appendChild(descriptionCell);
+  row.appendChild(stateCell);
   row.appendChild(actionCell);
 
-  tbody.appendChild(row);
-});
+  return row;
+}
 
 function getSpecialtyIconRoute(specialtyName) {
   const name = specialtyName.toLowerCase();
 
   switch(name){
-    case "cardiology":
+    case "cardiologia":
       return "images/beating_heart.png";
-    case "dermatology":
+    case "dermatologia":
       return "images/hair_follicle.png";
-    case "neurology":
+    case "neurologia":
       return "images/brain.png";
     case "pediatry":
       return "images/baby_bottle.png";
@@ -75,6 +91,8 @@ function makeSpecialtyImage(iconRoute) {
 
 function makeActionButtons(){
   const editButton = document.createElement('button');
+  editButton.id = 'editButton';
+
   const editImg = document.createElement('img'); 
   editImg.src = 'images/pen.png';
   editImg.height = 15;
@@ -82,6 +100,8 @@ function makeActionButtons(){
   editButton.appendChild(editImg);
 
   const deleteButton = document.createElement('button');
+  deleteButton.id = 'deleteButton';
+
   const deleteImg = document.createElement('img'); 
   deleteImg.src = 'images/bin.png';
   deleteImg.height = 15;
@@ -91,12 +111,8 @@ function makeActionButtons(){
   return [editButton,deleteButton];
 }
 
-const headerContainer = document.getElementById('header-container');
-
-const searchContainer = document.getElementById('search-container');
 const searchButton = document.getElementById('search-button');
 const searchBar = document.getElementById('search-bar');
-
 
 searchButton.addEventListener('click', (event) => {
   event.preventDefault();
@@ -112,8 +128,23 @@ searchBar.addEventListener('keypress',(event) =>{
 })
 
 function showSpecialtyMatches(){
+  tbody.innerHTML = '';
   const query = searchBar.value.toLowerCase();
 
+  specialties.forEach(specialty => {
+    if(query === ''){
+      const row = specialtyRender(specialty);
+      tbody.appendChild(row);
+    }
+
+    let name = specialty.name.toLowerCase();
+    if(name.includes(query)){
+      const row = specialtyRender(specialty);
+      tbody.appendChild(row);
+    }
+  })
+
+/*
   tbody.querySelectorAll('tr').forEach(row => {
     row.hidden = false;
     const nameCell = row.cells[0].textContent.toLowerCase();
@@ -122,5 +153,64 @@ function showSpecialtyMatches(){
       row.hidden = true;
       }
     });
-}});
+*/
+}
+
+const paginationContainer = document.getElementById('pagination-container');
+const itemsPerPage = 3;
+let currentPage = 1;
+
+function renderTable(page) {
+  currentPage = page;
+  tbody.innerHTML = '';
+
+  const start = (page - 1) * itemsPerPage;
+  const end = start + itemsPerPage;
+  const paginatedItems = specialties.slice(start, end);
+
+  paginatedItems.forEach(item => {
+    const row = specialtyRender(item);
+    tbody.appendChild(row);
+  });
+
+  renderPagination();
+}
+
+function renderPagination() {
+  paginationContainer.innerHTML = '';
+
+  const totalPages = Math.ceil(specialties.length / itemsPerPage);
+
+  if (totalPages <= 1) return;
+
+  const ul = document.createElement('ul');
+  ul.classList.add('pagination-style');
+
+  for (let i = 1; i <= totalPages; i++) {
+    const li = document.createElement('li');
+    const button = document.createElement('button');
+
+    button.textContent = i;
+    button.value = i;
+
+    if (i === currentPage) {
+      button.classList.add('pagination-button');
+      button.disabled = true;
+    }
+
+    button.addEventListener('click', () => {
+      renderTable(i);
+    });
+
+    li.appendChild(button);
+    ul.appendChild(li);
+  }
+
+  paginationContainer.appendChild(ul);
+}
+
+if (specialties.length > 0) {
+  renderTable(1);
+}
+});
 
