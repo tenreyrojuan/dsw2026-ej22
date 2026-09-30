@@ -47,7 +47,7 @@
 .dashboard-container nav ul li.selected{
   background-color: rgb(229, 234, 243);
   font-weight: bold;
-  border-right: 4px solid rgb(1, 65, 161);
+  border-right: 4px solid rgb(71, 118, 189);
 }
 
 .dashboard-container nav ul a {
@@ -97,7 +97,6 @@
 
 .dashboard-container header {
   grid-area: header;
-
   height: 50px;
   background-color: #333;
   color: white;
@@ -194,7 +193,6 @@
   border-radius: 5px;
   cursor: pointer;
   outline: none;
-  font-size: 0.75rem;
   height: 2.5rem;
   width: 8rem;
 }
@@ -206,7 +204,6 @@
 .dashboard-container table {
   border-collapse: separate;
   border-spacing: 0;
-  font-size: 0.75rem;
   border: 0.5px solid black;
   border-radius: 6px;
   overflow: hidden;
@@ -344,7 +341,7 @@
 @media screen and (min-width: 768px) {
 
   .dashboard-container {
-    grid-template-columns: 200px 1fr;
+    grid-template-columns: 220px 1fr;
     grid-template-areas: 
       "nav main";
   }
@@ -366,12 +363,13 @@
     padding: 0.5rem;
   }
   .dashboard-container nav .sbar-intro span:first-child{
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: bold;
     color: rgb(4, 71, 133);
   }
   .dashboard-container nav .sbar-intro span:last-child{
-    font-size: 0.75rem;
+    font-size: 0.7rem;
+    opacity: 0.5;
   }
 
   .dashboard-container nav ul {
@@ -379,7 +377,7 @@
   }
 
   .dashboard-container nav ul li{
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
   .dashboard-container nav ul li a{
     text-decoration: none;
@@ -387,11 +385,11 @@
   }
 
   .dashboard-container nav .account-management .help{
-    font-size: 1rem;
+    font-size: 0.8rem;
     color: rgb(75, 102, 121);
   }
   .dashboard-container nav .account-management .logout{
-    font-size: 1rem;
+    font-size: 0.8rem;
     color: rgb(75, 102, 121);
 
   }
@@ -399,7 +397,7 @@
     font-size: 0.8rem;
   }
   .dashboard-container nav .account-management .user_caracteristics .admin-type {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
   }
 
   .dashboard-container table {
